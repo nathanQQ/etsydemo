@@ -34,6 +34,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
 
     @listing.user_id = current_user.id;
+    @listing.created_date = Date.today;
 
     respond_to do |format|
       if @listing.save
