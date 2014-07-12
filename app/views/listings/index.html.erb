@@ -1,3 +1,5 @@
+<%= link_to "Show all listings", all_listings_path, class: "btn btn-link" %>
+
 <h3><%= Date.today.to_s %></h3>
 <div class="row">
   <% @listings.each do |listing| %>
@@ -34,6 +36,3 @@
   <% end %>  
 </div>
 
-<% if user_signed_in? %>
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
-<% end %>

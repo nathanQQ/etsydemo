@@ -6,6 +6,10 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
 
+  def all_listings
+    @listings = Listing.all
+  end
+
   def seller
     @listings = Listing.where(user:current_user).order("created_at DESC")
   end
