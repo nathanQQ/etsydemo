@@ -10,10 +10,12 @@
 		<h3><%= @listing.name %></h3>
 		<h5><%= @listing.description %></h5>
 		<p><%= number_to_currency(@listing.price) %></p>
+		<p><%= "sold by #{@listing.user.name}" %></p>
 	</div>	
 </div>
 
 
+<%= link_to 'Buy it now', new_listing_order_path(@listing), class: "btn btn-primary" %><br>
 <% if (current_user == @listing.user) %>
 	<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
 <% end %>

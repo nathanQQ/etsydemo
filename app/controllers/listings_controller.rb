@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
   end
 
   def seller
-    @listings = Listing.where(user:current_user).order("created_at DESC")
+    @listings = Listing.where(user: current_user).order("created_at DESC")
   end
 
   def index

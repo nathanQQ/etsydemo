@@ -1,0 +1,29 @@
+<h1>Listing orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Street</th>
+      <th>City</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.name %></td>
+        <td><%= order.street %></td>
+        <td><%= order.city %></td>
+        <td><%= link_to 'Show', listing_orders_path %></td>
+        <td><%= link_to 'Edit', edit_listing_order_path(order) %></td>
+        <td><%= link_to 'Destroy', listing_orders_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_listing_order_path %>
