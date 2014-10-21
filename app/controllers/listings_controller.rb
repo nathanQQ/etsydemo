@@ -6,8 +6,12 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
 
+# all_listings is not the homepage!!!
   def all_listings
     @listings = Listing.all
+    #@listings = Listing.order("created_at DESC").page(params[:page])
+    #@listings = Kaminari.paginate_array(Listing.first(4)).page(params[:page])
+    #@listings = Listing.paginate(:page => params[:page], :per_page => 8)
   end
 
   def seller
@@ -15,7 +19,8 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all.order("created_at DESC")
+    #@listings = Listing.all.order("created_at DESC")
+    @listings = Listing.order("created_at DESC").page(params[:page])
   end
 
   # GET /listings/1
