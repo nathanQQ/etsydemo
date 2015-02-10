@@ -79,8 +79,18 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
+  config.active_record.dump_schema_after_migration = falsee
 
   # required for devise. Host should be set to the actural application host
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'wenqian-etsydemo.herokuapp.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :authentication => :login,
+    :domain => 'gmail.com',
+    :user_name => ENV['EMAIL_USER'],
+    :password => ENV['EMAIL_PASSWORD']
+  }  
 end
